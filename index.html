@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divya & Dhaval Wedding Schedule</title>
+  <style>
+    :root {
+      --rose: #a83a70;
+      --rose-dark: #77214d;
+      --purple: #71538f;
+      --gold: #d7a840;
+      --cream: #fff7f6;
+      --text: #562240;
+      --soft: rgba(255, 247, 246, 0.88);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Georgia, 'Times New Roman', serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(226, 172, 222, 0.35), transparent 24%),
+        radial-gradient(circle at 85% 10%, rgba(255, 223, 167, 0.35), transparent 20%),
+        linear-gradient(135deg, #fff9fb 0%, #fff1f7 48%, #fffaf1 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: min(150px, 28vw);
+      pointer-events: none;
+      z-index: 0;
+      background-repeat: repeat-y;
+      background-size: 130px auto;
+      opacity: 0.55;
+    }
+
+    body::before {
+      left: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='420' viewBox='0 0 130 420'%3E%3Cg fill='none' stroke='%2383a865' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M65 0 C50 60 88 95 62 155 C38 210 74 260 52 330 C43 360 48 390 39 420'/%3E%3Cpath d='M58 70 C30 68 23 43 18 20'/%3E%3Cpath d='M70 130 C98 118 108 92 114 64'/%3E%3Cpath d='M55 230 C31 225 20 203 12 178'/%3E%3Cpath d='M57 335 C88 320 103 289 112 260'/%3E%3C/g%3E%3Cg fill='%23dba4e7' opacity='.75'%3E%3Cellipse cx='18' cy='20' rx='8' ry='15' transform='rotate(-28 18 20)'/%3E%3Cellipse cx='114' cy='64' rx='8' ry='15' transform='rotate(22 114 64)'/%3E%3Cellipse cx='12' cy='178' rx='8' ry='15' transform='rotate(-35 12 178)'/%3E%3Cellipse cx='112' cy='260' rx='8' ry='15' transform='rotate(24 112 260)'/%3E%3Cellipse cx='39' cy='397' rx='7' ry='14' transform='rotate(-18 39 397)'/%3E%3C/g%3E%3Cg fill='%23f4cff4' opacity='.75'%3E%3Ccircle cx='38' cy='44' r='8'/%3E%3Ccircle cx='95' cy='96' r='8'/%3E%3Ccircle cx='35' cy='205' r='8'/%3E%3Ccircle cx='91' cy='315' r='8'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    body::after {
+      right: 0;
+      transform: scaleX(-1);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='420' viewBox='0 0 130 420'%3E%3Cg fill='none' stroke='%2383a865' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M65 0 C50 60 88 95 62 155 C38 210 74 260 52 330 C43 360 48 390 39 420'/%3E%3Cpath d='M58 70 C30 68 23 43 18 20'/%3E%3Cpath d='M70 130 C98 118 108 92 114 64'/%3E%3Cpath d='M55 230 C31 225 20 203 12 178'/%3E%3Cpath d='M57 335 C88 320 103 289 112 260'/%3E%3C/g%3E%3Cg fill='%23dba4e7' opacity='.75'%3E%3Cellipse cx='18' cy='20' rx='8' ry='15' transform='rotate(-28 18 20)'/%3E%3Cellipse cx='114' cy='64' rx='8' ry='15' transform='rotate(22 114 64)'/%3E%3Cellipse cx='12' cy='178' rx='8' ry='15' transform='rotate(-35 12 178)'/%3E%3Cellipse cx='112' cy='260' rx='8' ry='15' transform='rotate(24 112 260)'/%3E%3Cellipse cx='39' cy='397' rx='7' ry='14' transform='rotate(-18 39 397)'/%3E%3C/g%3E%3Cg fill='%23f4cff4' opacity='.75'%3E%3Ccircle cx='38' cy='44' r='8'/%3E%3Ccircle cx='95' cy='96' r='8'/%3E%3Ccircle cx='35' cy='205' r='8'/%3E%3Ccircle cx='91' cy='315' r='8'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1100px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 60px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 86vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 36px 18px;
+      /* border: 2px solid rgba(215, 168, 64, 0.7);
+      border-radius: 34px;
+      background: var(--soft);
+      box-shadow: 0 20px 60px rgba(100, 31, 68, 0.12); */
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      /* border: 2px solid rgba(215, 168, 64, 0.55); */
+      /* border-radius: 220px 220px 34px 34px; */
+      pointer-events: none;
+    }
+
+    .monogram {
+      width: min(240px, 52vw);
+      display: block;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 12px 24px rgba(86, 34, 64, 0.18));
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .script {
+      font-family: 'Brush Script MT', 'Segoe Script', cursive;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      color: var(--rose);
+      font-size: clamp(46px, 9vw, 92px);
+      line-height: 0.95;
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(18px, 3.6vw, 32px);
+      color: var(--purple);
+      margin: 10px 0 28px;
+    }
+
+    .date-pill {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(215, 168, 64, 0.45);
+      color: var(--rose-dark);
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(116, 33, 78, 0.08);
+    }
+
+   
+    section {
+      margin: 28px 0;
+      padding: 30px 20px;
+      /* background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(215, 168, 64, 0.35);
+      border-radius: 28px;
+      box-shadow: 0 12px 36px rgba(100, 31, 68, 0.08);
+      backdrop-filter: blur(4px); */
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--rose);
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .section-date {
+      text-align: center;
+      color: var(--purple);
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 26px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .event-card {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px 18px;
+      border-radius: 22px;
+      /* background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
+      border: 1px solid rgba(168, 58, 112, 0.16);
+      box-shadow: 0 10px 26px rgba(116, 33, 78, 0.08); */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(116, 33, 78, 0.13);
+    }
+
+    .icon {
+      font-size: 48px;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 4px 7px rgba(0,0,0,.08));
+    }
+
+    .event-illustration {
+      display: block;
+      width: min(230px, 92%);
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 14px;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,.13));
+    }
+
+    .event-illustration.large-art {
+      width: min(360px, 92%);
+    }
+
+    .event-illustration.logo-art {
+      width: min(280px, 75vw);
+    }
+
+    .event-card h3 {
+      color: var(--rose-dark);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .event-card .time {
+      color: var(--purple);
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .feature-card {
+      width: min(560px, 100%);
+      margin: 0 auto;
+      padding: 34px 20px;
+    }
+
+    .feature-card .icon { font-size: 74px; }
+    .feature-card h3 { font-size: 34px; }
+
+    .venue {
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(215, 168, 64, 0.45);
+    }
+
+    .venue h3 {
+      color: var(--rose);
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .venue p {
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 34px;
+      color: var(--purple);
+      font-size: 18px;
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(100% - 16px, 1100px); padding-top: 8px; }
+      .hero { min-height: 78vh; border-radius: 22px; }
+      .hero::before { inset: 14px; border-radius: 160px 160px 24px 24px; }
+      section { padding: 25px 12px; border-radius: 22px; }
+      .cards { grid-template-columns: 1fr; }
+      .nav { position: static; }
+    }
+  </style>
+  <!-- Generated DIY cut-card images are stored in /assets as transparent PNGs. -->
+</head>
+<body>
+  <main class="page">
+    <header class="hero" id="home">
+      <div>
+        <img class="monogram logo-art" src="assets/Logo.png" alt="Decorative wedding logo">
+        <h1 class="script">Divya & Dhaval</h1>
+        <p class="subtitle script">Wedding Celebration Schedule</p>
+        <div class="date-pill">August 6–8, 2026 <span>•</span> Antioch, Tennessee</div>
+      </div>
+    </header>
+
+    <section id="mehndi">
+      <h2 class="section-title script">Welcome to Mehndi</h2>
+      <p class="section-date">August 6, 2026 | Thursday</p>
+      <article class="event-card feature-card">
+        <img class="event-illustration large-art" src="assets/mehndi.png" alt="Mehndi celebration artwork">
+        <h3>Mehndi Celebration</h3>
+        <p class="time">5:30 PM</p>
+      </article>
+     
+    </section>
+
+    <section id="aug7">
+      <h2 class="section-title script">Wedding Rituals</h2>
+      <p class="section-date">August 7, 2026 | Friday</p>
+      <div class="cards">
+        <article class="event-card">
+          <img class="event-illustration" src="assets/ganesh_sthapna.png" alt="Ganesh Sthapna DIY cut-card artwork">
+          <h3>Ganesh Sthapna</h3>
+          <p class="time">7:30 AM</p>
+        </article>
+        <article class="event-card">
+          <img class="event-illustration" src="assets/mandap_muhrat.png" alt="Mandap Muhrat DIY cut-card artwork">
+          <h3>Mandap Muhrat</h3>
+          <p class="time">8:30 AM</p>
+        </article>
+        <article class="event-card">
+         <img class="event-illustration" src="assets/Grahshanti.png" alt="Grah Shanti DIY cut-card artwork">
+          <h3>Grah Shanti</h3>
+          <p class="time">9:30 AM</p>
+        </article>
+       
+        <article class="event-card">
+          <img class="event-illustration" src="assets/lunch.png" alt="Lunch DIY cut-card artwork">
+          <h3>Lunch</h3>
+          <p class="time">12:00 PM</p>
+        </article>
+
+         <article class="event-card">
+          <img class="event-illustration" src="assets/mameru.png" alt="Mameru DIY cut-card artwork">
+          <h3>Mameru</h3>
+          <p class="time">1:30 PM</p>
+        </article>
+
+        <article class="event-card">
+          <img class="event-illustration" src="assets/pithi.png" alt="Pithi DIY cut-card artwork">
+          <h3>Pithi</h3>
+          <p class="time">2:30 PM</p>
+        </article>
+      </div>
+     
+    </section>
+
+    <section id="garba">
+     <h2 class="section-title script">Welcome to Garba Night</h2>
+      <p class="section-date">August 6, 2026 | Thursday</p>
+      <article class="event-card feature-card">
+        <img class="event-illustration large-art" src="assets/GarbaNight.png" alt="Garba Night artwork">
+        <h3>Garba Night</h3>
+        <p class="time">5:30 PM</p>
+      </article>
+     
+    </section>
+
+    <section id="wedding">
+      <h2 class="section-title script">Wedding Ceremony</h2>
+      <p class="section-date">August 8, 2026 | Saturday</p>
+      <article class="event-card feature-card">
+         <img class="event-illustration large-art" src="assets/Wedding.png" alt="Wedding artwork">
+        <h3>Divya Weds Dhaval</h3>
+        <p class="time">8:30 AM</p>
+      </article>
+
+      <div class="venue">
+        <h3 class="script">Venue</h3>
+        <p>2241 Hobson Pike,<br>Antioch, TN 37013</p>
+      </div>
+    </section>
+
+    <p class="footer script">With love, blessings, and good wishes</p>
+  </main>
+</body>
+</html>
